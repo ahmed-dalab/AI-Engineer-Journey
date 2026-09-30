@@ -238,3 +238,46 @@ So at a simplified level:
   - An LLM generates text by repeatedly predicting the next token.
 
 We'll explore how it does that when we get to transformers, attention, parameters, and inference.
+
+10. A crucial mental model
+
+                 TOKENIZATION
+Human text ──────────────────────────┐
+                                     ↓
+                              ┌─────────────┐
+                              │    Tokens   │
+                              └──────┬──────┘
+                                     ↓
+                              ┌─────────────┐
+                              │   Token IDs  │
+                              └──────┬──────┘
+                                     ↓
+                              ┌─────────────┐
+                              │     LLM     │
+                              └──────┬──────┘
+                                     ↓
+                              Next token
+                                     ↓
+                              Next token
+                                     ↓
+                              Next token
+                                     ↓
+                                  Output
+
+
+
+Why you, as an AI engineer, care
+
+You don't need to become a tokenizer researcher.
+
+But you do need to understand tokens because eventually you'll ask questions like:
+
+    Why did my prompt become expensive?
+    Why did my RAG application exceed the context window?
+    Why can I fit only a certain amount of information into a request?
+    Why does a long document need chunking?
+    Why does one model consume fewer tokens than another?
+    Why does my agent's context keep growing?
+    Why does reducing unnecessary context improve latency and cost?
+
+Those questions all connect back to fundamentals like tokens.
