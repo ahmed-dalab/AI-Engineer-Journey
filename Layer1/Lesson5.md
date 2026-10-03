@@ -12,23 +12,23 @@ The answers are parameters and inference.
 
 1. What are parameters?
 
-A parameter is a numerical value inside a neural network that is learned during training.
+ A parameter is a numerical value inside a neural network that is learned during training.
 
 A modern LLM can have billions of parameters.
 
 You may hear:
 
-7B parameters
-13B parameters
-70B parameters
-405B parameters
+      7B parameters
+      13B parameters
+      70B parameters
+      405B parameters
 
 The B means billion.
 
 So:
 
-7B = approximately 7 billion parameters
-70B = approximately 70 billion parameters
+      7B = approximately 7 billion parameters
+      70B = approximately 70 billion parameters
 
 These aren't simply "70 billion facts."
 
@@ -40,18 +40,18 @@ Imagine you're training a developer to recognize code.
 
 You show them thousands of examples:
 
-function examples
-database queries
-API requests
-React components
-algorithms
-etc.
+      function examples
+      database queries
+      API requests
+      React components
+      algorithms
+      etc.
 
 Over time, they develop an internal understanding of patterns.
 
 LLMs do something fundamentally different and mathematical, but the analogy helps:
 
-Training changes the model's parameters so that it becomes better at predicting language and other patterns.
+      Training changes the model's parameters so that it becomes better at predicting language and other patterns.
 
 The parameters are the numerical values that get adjusted during training.
 
@@ -59,23 +59,23 @@ The parameters are the numerical values that get adjusted during training.
 
 A simplified mental model is:
 
-Training data
-     ↓
-Training process
-     ↓
-Parameters are adjusted
-     ↓
-Trained model
-     ↓
-Parameters encode learned patterns
+      Training data
+      ↓
+      Training process
+      ↓
+      Parameters are adjusted
+      ↓
+      Trained model
+      ↓
+      Parameters encode learned patterns
 
 So when someone asks:
 
-"Where does GPT know this?"
+   "Where does GPT know this?"
 
 The answer isn't:
 
-"There's a database inside it containing every answer."
+  "There's a database inside it containing every answer."
 
 Instead, the model's learned behavior is encoded across its parameters and architecture.
 
@@ -85,13 +85,13 @@ This is one reason an LLM isn't simply a traditional database.
 
 Suppose a model knows:
 
-"Paris is the capital of France."
+   "Paris is the capital of France."
 
 Don't imagine:
 
-parameter #1 = Paris
-parameter #2 = France
-parameter #3 = capital
+      parameter #1 = Paris
+      parameter #2 = France
+      parameter #3 = capital
 
 It doesn't work like that.
 
@@ -99,11 +99,11 @@ The information is represented in distributed numerical patterns across many par
 
 So:
 
-Billions of parameters
-        ↓
-Distributed learned patterns
-        ↓
-Model behavior
+      Billions of parameters
+            ↓
+      Distributed learned patterns
+            ↓
+      Model behavior
 
 This is a much better mental model.
 
@@ -115,17 +115,17 @@ Training
 
 The model learns.
 
-Data
- ↓
-Model
- ↓
-Prediction
- ↓
-Error
- ↓
-Adjust parameters
- ↓
-Repeat
+      Data
+      ↓
+      Model
+      ↓
+      Prediction
+      ↓
+      Error
+      ↓
+      Adjust parameters
+      ↓
+      Repeat
 
 The parameters are changed during training.
 
@@ -133,13 +133,13 @@ Inference
 
 The trained model uses what it has learned to generate an output.
 
-Prompt
- ↓
-Trained model
- ↓
-Prediction
- ↓
-Output
+      Prompt
+      ↓
+      Trained model
+      ↓
+      Prediction
+      ↓
+      Output
 
 During ordinary inference, the model's learned parameters aren't being updated just because you asked it a question.
 
@@ -170,9 +170,9 @@ You aren't normally rewriting your brain's knowledge after every question.
 
 Similarly:
 
-Training → parameters change
+      Training → parameters change
 
-Inference → parameters are used
+      Inference → parameters are used
 
 This distinction is essential.
 
@@ -184,32 +184,32 @@ You send:
 
 "What is a database index?"
 Step 1 — Tokenization
-Text
- ↓
-Tokens
- ↓
-Token IDs
+      Text
+      ↓
+      Tokens
+      ↓
+      Token IDs
 Step 2 — Model processes them
 
 The Transformer processes those token representations using its layers and attention mechanisms.
 
-Token representations
-        ↓
-Transformer layers
-        ↓
-Attention
-        ↓
-Neural computations
+      Token representations
+            ↓
+      Transformer layers
+            ↓
+      Attention
+            ↓
+      Neural computations
 Step 3 — Model produces probabilities
 
 The model estimates probabilities for possible next tokens.
 
 Conceptually:
 
-"An"       → 35%
-"A"        → 20%
-"A database" → ...
-"Database" → ...
+      "An"       → 35%
+      "A"        → 20%
+      "A database" → ...
+      "Database" → ...
 
 The exact probabilities aren't important here.
 
@@ -225,17 +225,17 @@ Then the model generates another.
 
 And another.
 
-Prompt
- ↓
-Token
- ↓
-Token
- ↓
-Token
- ↓
-Token
- ↓
-...
+      Prompt
+      ↓
+      Token
+      ↓
+      Token
+      ↓
+      Token
+      ↓
+      Token
+      ↓
+      ...
 
 That's inference.
 
@@ -245,22 +245,22 @@ This is one of the most important ideas in understanding LLMs.
 
 Suppose:
 
-The capital of France is
+      The capital of France is
 
 The model predicts something like:
 
-Paris → very high probability
-London → lower
-Berlin → lower
-...
+      Paris → very high probability
+      London → lower
+      Berlin → lower
+      ...
 
 It generates:
 
-Paris
+      Paris
 
 Now the sequence becomes:
 
-The capital of France is Paris
+      The capital of France is Paris
 
 The model predicts the next token again.
 
@@ -268,7 +268,7 @@ This continues until the generation ends.
 
 So:
 
-LLM generation is fundamentally an iterative next-token prediction process.
+      LLM generation is fundamentally an iterative next-token prediction process.
 
 9. Then why does it look like reasoning?
 
@@ -276,15 +276,15 @@ This is where things get interesting.
 
 The model can generate sequences that look like:
 
-Problem
- ↓
-Step 1
- ↓
-Step 2
- ↓
-Step 3
- ↓
-Answer
+      Problem
+      ↓
+      Step 1
+      ↓
+      Step 2
+      ↓
+      Step 3
+      ↓
+      Answer
 
 It can perform surprisingly sophisticated tasks.
 
@@ -308,23 +308,23 @@ Parameter count is one factor among many.
 
 Performance also depends on:
 
-training data
-data quality
-architecture
-training methods
-post-training/alignment
-context capabilities
-inference techniques
-tools
-evaluation methods
+      training data
+      data quality
+      architecture
+      training methods
+      post-training/alignment
+      context capabilities
+      inference techniques
+      tools
+      evaluation methods
 
 So:
 
-70B parameters
+      70B parameters
 
 doesn't automatically mean:
 
-better than every 30B model
+      better than every 30B model
 
 Don't use parameter count as a simple quality ranking.
 
@@ -336,9 +336,9 @@ Parameters
 
 The model's learned internal values.
 
-Parameters
- ↓
-Learned patterns
+      Parameters
+      ↓
+      Learned patterns
 Context
 
 The information currently provided to the model.
@@ -349,11 +349,11 @@ Current information
 
 Think:
 
-PARAMETERS
-"What the trained model has learned"
+      PARAMETERS
+      "What the trained model has learned"
 
-CONTEXT
-"What we're giving it right now"
+      CONTEXT
+      "What we're giving it right now"
 
 This distinction will become extremely important when we get to RAG.
 
@@ -363,21 +363,21 @@ Suppose your company's latest sales report wasn't included in the model's traini
 
 You ask:
 
-"How much revenue did our company make last month?"
+      "How much revenue did our company make last month?"
 
 The model's parameters don't magically contain your company's latest private report.
 
 So your application can retrieve the report and put the relevant information into the context:
 
-User question
-      ↓
-Retrieve company data
-      ↓
-Put relevant data into context
-      ↓
-LLM
-      ↓
-Answer
+      User question
+            ↓
+      Retrieve company data
+            ↓
+      Put relevant data into context
+            ↓
+      LLM
+            ↓
+      Answer
 
 This is one of the fundamental reasons RAG exists.
 
@@ -423,27 +423,27 @@ When you call an LLM API, you're generally not training the model yourself.
 
 For example, your application might do:
 
-Your application
-      ↓
-LLM API
-      ↓
-Provider's trained model
-      ↓
-Response
+      Your application
+            ↓
+      LLM API
+            ↓
+      Provider's trained model
+            ↓
+      Response
 
 Your job as an AI engineer is often to build the software around the model:
 
-prompts
-context
-tools
-RAG
-databases
-permissions
-evaluation
-APIs
-UI
-monitoring
-cost control
+      prompts
+      context
+      tools
+      RAG
+      databases
+      permissions
+      evaluation
+      APIs
+      UI
+      monitoring
+      cost control
 
 This is exactly where your existing software-engineering background becomes valuable.
 
@@ -451,17 +451,17 @@ This is exactly where your existing software-engineering background becomes valu
 
 Remember these four:
 
-Parameters
+      Parameters
 
-Learned numerical values inside the model.
+      Learned numerical values inside the model.
 
 Training
 
 The process that adjusts parameters so the model learns patterns.
 
-Inference
+      Inference
 
-Using the trained model to generate an output.
+      Using the trained model to generate an output.
 
 Next-token prediction
 

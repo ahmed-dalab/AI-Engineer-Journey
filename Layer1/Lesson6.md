@@ -32,15 +32,15 @@ That's where temperature and top-p come in.
 
 Suppose the model predicts:
 
-Paris → 92%
-London → 2%
-Berlin → 1%
-Rome → 1%
-Other → 4%
+    Paris → 92%
+    London → 2%
+    Berlin → 1%
+    Rome → 1%
+    Other → 4%
 
 The model isn't necessarily saying:
 
-"I know Paris with 92% certainty."
+    "I know Paris with 92% certainty."
 
 It's producing a probability distribution that is used by the generation process.
 
@@ -52,32 +52,32 @@ Temperature controls how much the probability distribution is flattened or sharp
 
 The easiest mental model:
 
-Lower temperature → more predictable
+    Lower temperature → more predictable
 
-Higher temperature → more varied
+    Higher temperature → more varied
 
 Imagine:
 
-Temperature = low
+    Temperature = low
 
 The model strongly favors high-probability tokens.
 
-Paris → ████████████████████
-London → █
-Berlin → █
-Rome → █
+    Paris → ████████████████████
+    London → █
+    Berlin → █
+    Rome → █
 
 At a higher temperature:
 
-Temperature = higher
+    Temperature = higher
 
 the probabilities become more spread out:
 
-Paris → ████████████
-London → ███
-Berlin → ██
-Rome → ██
-...
+    Paris → ████████████
+    London → ███
+    Berlin → ██
+    Rome → ██
+    ...
 
 This makes lower-probability choices more likely.
 
@@ -85,35 +85,35 @@ This makes lower-probability choices more likely.
 
 Imagine a strange six-sided die:
 
-Paris    → 90%
-London   → 4%
-Berlin   → 2%
-Rome     → 2%
-Madrid   → 1%
-Other    → 1%
+    Paris    → 90%
+    London   → 4%
+    Berlin   → 2%
+    Rome     → 2%
+    Madrid   → 1%
+    Other    → 1%
 Low temperature
 
 You're making the die more heavily biased toward Paris.
 
 The result will usually be:
 
-Paris
-Paris
-Paris
-Paris
-...
-Higher temperature
+    Paris
+    Paris
+    Paris
+    Paris
+    ...
+    Higher temperature
 
 You're making the distribution more varied.
 
 You might occasionally get:
 
-London
-Berlin
-Paris
-Paris
-Rome
-...
+    London
+    Berlin
+    Paris
+    Paris
+    Rome
+    ...
 
 Again, this is an analogy—not literally how temperature works mechanically.
 
@@ -129,41 +129,41 @@ It can actually make its output more unpredictable.
 
 So:
 
-Temperature ↑
+    Temperature ↑
 
-doesn't mean:
+    doesn't mean:
 
-Intelligence ↑
+    Intelligence ↑
 
 Instead:
 
 Temperature ↑
-→ more randomness/variation in sampling
+    → more randomness/variation in sampling
 5. Low temperature isn't automatically "better"
 
 It depends on the task.
 
 Imagine you're generating:
 
-Database SQL
+    Database SQL
 
 You generally want:
 
-consistent
-precise
-predictable
+    consistent
+    precise
+    predictable
 
 A lower temperature may be appropriate.
 
 But imagine:
 
-Story ideas
+    Story ideas
 
 You might want:
 
-variety
-creative alternatives
-unexpected combinations
+    variety
+    creative alternatives
+    unexpected combinations
 
 A somewhat higher temperature can be useful.
 
@@ -173,13 +173,13 @@ So temperature is a generation control, not a quality slider.
 
 Suppose you ask:
 
-"Give me a name for a Somali technology company."
+    "Give me a name for a Somali technology company."
 
 At lower temperature, you might get outputs that are more predictable:
 
-Hikma Technologies
-SomTech
-Somali Digital Solutions
+    Hikma Technologies
+    SomTech
+    Somali Digital Solutions
 
 At a higher temperature, the model may explore more unusual combinations.
 
@@ -191,51 +191,51 @@ The desired behavior depends on your application.
 
 Now we have another parameter:
 
-top-p, also called nucleus sampling.
+    top-p, also called nucleus sampling.
 
 Instead of saying:
 
-"Consider every possible token."
+    "Consider every possible token."
 
 top-p says roughly:
 
-Only consider the smallest group of highest-probability tokens whose combined probability reaches a chosen threshold.
+    Only consider the smallest group of highest-probability tokens whose combined probability reaches a chosen threshold.
 
 For example, suppose:
 
-Paris     60%
-London    15%
-Berlin    10%
-Rome       5%
-Madrid     3%
-Other      7%
+    Paris     60%
+    London    15%
+    Berlin    10%
+    Rome       5%
+    Madrid     3%
+    Other      7%
 
 If:
 
-top-p = 0.90
+    top-p = 0.90
 
 the system could include tokens until their cumulative probability reaches about 90%:
 
-Paris     60%
-London    15%
-Berlin    10%
-Rome       5%
-----------------
-Total     90%
+    Paris     60%
+    London    15%
+    Berlin    10%
+    Rome       5%
+    ----------------
+    Total     90%
 
 The lower-probability candidates are excluded from that sampling step.
 
 8. Why is it called "nucleus"?
 
-Because the model selects a probability mass nucleus.
+    Because the model selects a probability mass nucleus.
 
 Instead of choosing based on a fixed number of tokens:
 
-Top 5 tokens
+    Top 5 tokens
 
 it chooses based on probability mass:
 
-Top tokens whose combined probability ≈ chosen p
+    Top tokens whose combined probability ≈ chosen p
 
 That's the key difference.
 
@@ -243,31 +243,31 @@ That's the key difference.
 
 You may encounter top-k too.
 
-Top-k
+    Top-k
 
 Choose the top K tokens.
 
 Example:
 
-top-k = 5
+    top-k = 5
 
 Only the five highest-probability tokens are considered.
 
-Top-p
+    Top-p
 
 Choose tokens until their cumulative probability reaches p.
 
 Example:
 
-top-p = 0.90
+    top-p = 0.90
 
 The number of tokens can vary depending on the probability distribution.
 
 So:
 
-top-k → fixed number of candidates
+    top-k → fixed number of candidates
 
-top-p → variable number based on probability mass
+    top-p → variable number based on probability mass
 
 You don't need to master top-k right now, but knowing the distinction is useful.
 
@@ -275,29 +275,29 @@ You don't need to master top-k right now, but knowing the distinction is useful.
 
 This is a common beginner mistake.
 
-They're not two names for the same thing.
+    They're not two names for the same thing.
 
 Temperature
 
-Changes the shape of the probability distribution.
+    Changes the shape of the probability distribution.
 
 Top-p
 
-Limits the candidate pool based on cumulative probability.
+    Limits the candidate pool based on cumulative probability.
 
 Conceptually:
 
-Model
-  ↓
-Probability distribution
-  ↓
-Temperature changes distribution
-  ↓
-Top-p limits candidates
-  ↓
-Sampling
-  ↓
-Next token
+    Model
+    ↓
+    Probability distribution
+    ↓
+    Temperature changes distribution
+    ↓
+    Top-p limits candidates
+    ↓
+    Sampling
+    ↓
+    Next token
 
 The exact implementation/order can depend on the generation system, so treat this as a conceptual model.
 
@@ -309,15 +309,15 @@ But as a beginner, don't obsess over tuning both simultaneously.
 
 A useful engineering approach is:
 
-Start with the model's defaults → test your application → adjust one generation control at a time → evaluate the results.
+    Start with the model's defaults → test your application → adjust one generation control at a time → evaluate the results.
 
 Don't assume:
 
-temperature = 0
+    temperature = 0
 
 means:
 
-"The model is guaranteed to be perfectly deterministic."
+    "The model is guaranteed to be perfectly deterministic."
 
 The exact behavior depends on the model and API implementation.
 
@@ -376,29 +376,29 @@ These are much more relevant to controlling factual reliability.
 
 Let's connect the entire chain:
 
-User prompt
-    ↓
-Tokenization
-    ↓
-Token IDs
-    ↓
-Transformer
-    ↓
-Attention + learned parameters
-    ↓
-Probability distribution
-    ↓
-Temperature / sampling controls
-    ↓
-Select next token
-    ↓
-Add token to context
-    ↓
-Predict next token
-    ↓
-Repeat
-    ↓
-Final response
+    User prompt
+        ↓
+    Tokenization
+        ↓
+    Token IDs
+        ↓
+    Transformer
+        ↓
+    Attention + learned parameters
+        ↓
+    Probability distribution
+        ↓
+    Temperature / sampling controls
+        ↓
+    Select next token
+        ↓
+    Add token to context
+        ↓
+    Predict next token
+        ↓
+    Repeat
+        ↓
+    Final response
 
 You're now getting very close to understanding the fundamental generation loop of an LLM.
 
@@ -408,7 +408,7 @@ Remember:
 
 Temperature
 
-Controls how concentrated or spread out the probability distribution is during sampling.
+    Controls how concentrated or spread out the probability distribution is during sampling.
 
 Lower → more predictable
 
@@ -416,7 +416,7 @@ Higher → more varied
 
 Top-p
 
-Restricts sampling to a set of high-probability tokens whose cumulative probability reaches a chosen threshold.
+    Restricts sampling to a set of high-probability tokens whose cumulative probability reaches a chosen threshold.
 
 Most important
 
