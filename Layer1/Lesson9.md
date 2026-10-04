@@ -9,33 +9,33 @@ Normally, when you ask an LLM a question, the application can wait until the mod
 
 Without streaming:
 
-User
- ↓
-API request
- ↓
-LLM generates entire response
- ↓
-Complete response
- ↓
-User sees it
+    User
+    ↓
+    API request
+    ↓
+    LLM generates entire response
+    ↓
+    Complete response
+    ↓
+    User sees it
 
 With streaming, the model's response is delivered piece by piece while it is being generated:
 
-User
- ↓
-API request
- ↓
-LLM generates
- ↓
-"Hello"
- ↓
-"Hello, "
- ↓
-"Hello, how"
- ↓
-"Hello, how can"
- ↓
-"Hello, how can I help..."
+    User
+    ↓
+    API request
+    ↓
+    LLM generates
+    ↓
+    "Hello"
+    ↓
+    "Hello, "
+    ↓
+    "Hello, how"
+    ↓
+    "Hello, how can"
+    ↓
+    "Hello, how can I help..."
 
 The user doesn't have to wait for the whole response.
 
@@ -53,15 +53,15 @@ With streaming
 
 The waiter brings:
 
-Dish 1 🍽️
+    Dish 1 🍽️
 
-Then:
+    Then:
 
-Dish 2 🍽️
+    Dish 2 🍽️
 
-Then:
+    Then:
 
-Dish 3 🍽️
+    Dish 3 🍽️
 
 You can start consuming the response immediately.
 
@@ -129,7 +129,7 @@ It may send chunks containing one or several tokens.
 
 So think:
 
-Streaming = receiving generated output incrementally rather than waiting for the complete output.
+  Streaming = receiving generated output incrementally rather than waiting for the complete output.
 
 That's the important mental model.
 
@@ -179,21 +179,21 @@ This is important.
 
 Streaming doesn't change:
 
-the model's intelligence
-its parameters
-its knowledge
-its reasoning ability
-the number of tokens generated
+    the model's intelligence
+    its parameters
+    its knowledge
+    its reasoning ability
+    the number of tokens generated
 
 It primarily changes when the output is delivered.
 
 Think:
 
 Normal:
-Generate → wait → receive everything
+  Generate → wait → receive everything
 
 Streaming:
-Generate → receive → generate → receive → generate → receive
+  Generate → receive → generate → receive → generate → receive
 
 The model isn't necessarily generating faster.
 
@@ -203,21 +203,21 @@ You're simply seeing the output earlier.
 
 Suppose the model generates:
 
-500 tokens
+  500 tokens
 
 Whether you stream them or not:
 
-500 tokens
+  500 tokens
 
 are still generated.
 
 So:
 
-Streaming ≠ cheaper
+    Streaming ≠ cheaper
 
-Streaming ≠ fewer tokens
+    Streaming ≠ fewer tokens
 
-Streaming ≠ better model
+    Streaming ≠ better model
 
 It's mainly a delivery/UX mechanism.
 
@@ -225,10 +225,10 @@ It's mainly a delivery/UX mechanism.
 
 Streaming is particularly useful for:
 
-Chat applications
-User: Explain databases.
+  Chat applications
+  User: Explain databases.
 
-AI: A database is...
+  AI: A database is...
 
 The response starts appearing immediately.
 
@@ -247,10 +247,10 @@ AI agents
 
 An agent may produce intermediate events such as:
 
-Thinking/processing...
-Calling search...
-Tool result received...
-Generating final answer...
+  Thinking/processing...
+  Calling search...
+  Tool result received...
+  Generating final answer...
 
 The exact events depend on the API/framework.
 
@@ -260,11 +260,11 @@ Here's an interesting connection to our previous lesson.
 
 Suppose you ask the model for:
 
-{
-  "customer": "Ahmed",
-  "amount": 50,
-  "dueDate": "2026-10-10"
-}
+    {
+      "customer": "Ahmed",
+      "amount": 50,
+      "dueDate": "2026-10-10"
+    }
 
 With normal structured output, your application can wait for the complete response and then validate/parse it.
 
@@ -299,17 +299,17 @@ Your application should ideally be able to cancel the ongoing request/stream.
 
 Conceptually:
 
-LLM
- ↓
-chunk
- ↓
-chunk
- ↓
-chunk
- ↓
-USER PRESSES STOP
- ↓
-cancel request
+    LLM
+    ↓
+    chunk
+    ↓
+    chunk
+    ↓
+    chunk
+    ↓
+    USER PRESSES STOP
+    ↓
+    cancel request
 
 This matters in production because otherwise you're potentially continuing to consume resources for an answer the user no longer wants.
 
@@ -319,7 +319,7 @@ Don't confuse:
 
 Streaming
 
-"Send me the response progressively."
+  "Send me the response progressively."
 
 with:
 
@@ -336,9 +336,9 @@ Structured output
 They solve different problems:
 
 Concept	Main purpose
-Structured output	Control format
-Tool calling	Let the model request actions/data
-Streaming	Deliver output progressively
+  Structured output	Control format
+  Tool calling	Let the model request actions/data
+  Streaming	Deliver output progressively
 
 These can exist together in the same AI application.
 
@@ -346,35 +346,35 @@ These can exist together in the same AI application.
 
 You've now seen the complete basic pipeline:
 
-USER
- ↓
-TEXT
- ↓
-TOKENIZATION
- ↓
-TOKENS / TOKEN IDs
- ↓
-CONTEXT
- ↓
-TRANSFORMER
- ↓
-ATTENTION
- ↓
-PARAMETERS
- ↓
-NEXT-TOKEN PROBABILITIES
- ↓
-TEMPERATURE / TOP-P
- ↓
-NEXT TOKEN
- ↓
-REPEAT
- ↓
-STREAM OUTPUT
- ↓
-STRUCTURED RESULT / TEXT
- ↓
-YOUR APPLICATION
+          USER
+          ↓
+          TEXT
+          ↓
+          TOKENIZATION
+          ↓
+          TOKENS / TOKEN IDs
+          ↓
+          CONTEXT
+          ↓
+          TRANSFORMER
+          ↓
+          ATTENTION
+          ↓
+          PARAMETERS
+          ↓
+          NEXT-TOKEN PROBABILITIES
+          ↓
+          TEMPERATURE / TOP-P
+          ↓
+          NEXT TOKEN
+          ↓
+          REPEAT
+          ↓
+          STREAM OUTPUT
+          ↓
+          STRUCTURED RESULT / TEXT
+          ↓
+          YOUR APPLICATION
 
 And remember the bigger picture:
 
