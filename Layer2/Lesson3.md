@@ -62,15 +62,15 @@ Think of it like giving a developer an API specification.
 
 Bad:
 
-Here is some stuff, do something with it, don't mess it up...
+  Here is some stuff, do something with it, don't mess it up...
 
 Better:
 
 Endpoint:
-POST /orders
+  POST /orders
 
 Purpose:
-Create an order
+  Create an order
 
 Input:
 ...
@@ -87,22 +87,22 @@ The second is easier to understand and less ambiguous.
 
 A practical structure is:
 
-ROLE
-↓
+  ROLE
+  ↓
 
-TASK
-↓
+  TASK
+  ↓
 
-CONTEXT / DATA
-↓
+  CONTEXT / DATA
+  ↓
 
-CONSTRAINTS
-↓
+  CONSTRAINTS
+  ↓
 
-EXAMPLES
-↓
+  EXAMPLES
+  ↓
 
-OUTPUT FORMAT
+  OUTPUT FORMAT
 
 Not every prompt needs every section.
 
@@ -139,25 +139,25 @@ Imagine you're building an AI feature inside your software.
 
 Your backend might dynamically construct:
 
-SYSTEM
-↓
-Role + rules
+  SYSTEM
+  ↓
+  Role + rules
 
-USER
-↓
-User request
+  USER
+  ↓
+  User request
 
-CONTEXT
-↓
-Database information
+  CONTEXT
+  ↓
+  Database information
 
-TOOLS
-↓
-Available actions
+  TOOLS
+  ↓
+  Available actions
 
-OUTPUT
-↓
-Required format
+  OUTPUT
+  ↓
+  Required format
 
 This is much closer to software architecture than casual chatting.
 
@@ -286,7 +286,7 @@ That's not automatically better.
 
 Remember:
 
-Prompt complexity should be proportional to task complexity.
+  Prompt complexity should be proportional to task complexity.
 
 Start simple.
 
@@ -469,19 +469,19 @@ You still need validation.
 
 Imagine:
 
-User
- ↓
-LLM
- ↓
-JSON
- ↓
-Your backend
- ↓
-Validation
- ↓
-Business rules
- ↓
-Database
+  User
+  ↓
+  LLM
+  ↓
+  JSON
+  ↓
+  Your backend
+  ↓
+  Validation
+  ↓
+  Business rules
+  ↓
+  Database
 
 The LLM should not get unrestricted authority over your database.
 
