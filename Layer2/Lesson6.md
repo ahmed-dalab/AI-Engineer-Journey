@@ -282,19 +282,19 @@ Database
 
 ⑦ Human approval for high-impact actions
 For actions such as:
-- sending money
-- deleting important records
-- sending emails to many people
-- changing permissions
-- cancelling accounts
+   - sending money
+   - deleting important records
+   - sending emails to many people
+   - changing permissions
+   - cancelling accounts
 use:
-AI proposes
-      ↓
-Application validates
-      ↓
-Human confirms
-      ↓
-Action executes
+        AI proposes
+        ↓
+        Application validates
+        ↓
+        Human confirms
+        ↓
+        Action executes
 
 This is particularly useful when mistakes are expensive.
 1. Mizan example
